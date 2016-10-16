@@ -1,0 +1,23 @@
+{* 2016-09-27_SMARTY_INICIOS *}
+{include file="header.html"} {*2016-09-29*}
+<h1>{$titulo}</h1>
+<a class="input" href="estados.php?accion=nuevo&id_estado=null">Nuevo estado</a>
+<table class="table table-hover">
+  <tr>
+    <th>ID</th>
+    <th>Estado</th>
+    <th>Ver</th>      {* 2016-09-29 *}
+    <th>Editar</th>   {* 2016-09-29 *}
+    <th>Eliminar</th> {* 2016-09-29 *}
+  </tr>
+  {foreach $estados as $estado}
+    <tr>
+      <td>{$estado.id_estado}</td>
+      <td>{$estado.estado}</td>
+      <td><img src="../images/search.png" alt=""></td> {* 2016-09-29 *}
+      <td><a href="estados.php?accion=editar&id_estado={$estado.id_estado}"><img src="../images/update.png" alt=""></a></td> {* 2016-10-04 *}
+      <td><a href="estados.php?accion=eliminar&id_estado={$estado.id_estado}"><img src="../images/delete.png" alt=""></a></td> {* 2016-09-29 *}
+    </tr>
+  {/foreach}
+</table>
+{include file="footer.html"} {*2016-09-29*}

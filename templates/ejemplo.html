@@ -1,0 +1,11 @@
+{* 2016-09-27_SMARTY_INICIOS *}
+{*Hello {$name}, welcome to Smarty!*}
+
+<h1>{$titulo}</h1>
+Las frutas son:
+{* $frutas[0] *}
+<ul>
+  {foreach $frutas as $myfruit}
+  <li>{$myfruit}</li>
+  {/foreach}
+</ul>

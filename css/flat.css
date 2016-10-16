@@ -1,0 +1,82 @@
+body{
+    /**background-color: #52B3D9;*/
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+.wrapper{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+.contenedor{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+
+}
+
+.formulario{
+    margin: auto;
+    padding: 0px;
+    width: 80%;
+    font-family: Arial;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: white;
+    border-radius: 8px;
+}
+
+
+.formulario h1{
+    padding: 10px;
+    background-color:  #008CBA;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.desc{
+    padding: 10px 20px;
+}
+
+.formulario form{
+    padding: 20px;
+    margin: 0px;
+}
+
+.input{
+    display:block;
+    margin: 0px;
+    border:none;
+    border-bottom:1px solid #808080;
+    font-family: sans-serif;
+    font-size: 18px;
+    width: 100%;
+    padding:4px;
+}
+
+.button{
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 12px 28px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+}

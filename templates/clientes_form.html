@@ -1,0 +1,56 @@
+{include file="header.html"} {*2016-10-03*}
+<form class="" action="clientes.php?accion={if isset($id_cliente)}guardar{else}alta{/if}" method="post">{*2016-10-06*}
+  {if isset($id_cliente)} {*2016-10-06*}
+    <h1>Edición de Cliente</h1>
+  {else}
+    <h1>Nuevo cliente</h1>
+  {/if}
+  <div class="form-group">
+    <label>Razón Social</label>
+    <input class="form-control" name="razon_social" required
+      {if isset($id_cliente)} {*2016-10-06*}
+        value="{$cliente.razon_social}"
+      {/if}>
+  </div>
+  <div class="form-group">
+    <label>RFC</label>
+    <input class="form-control" name="rfc" required
+      {if isset($id_cliente)} {*2016-10-06*}
+        value="{$cliente.rfc}"
+      {/if}>
+  </div>
+  <div class="form-group">
+    <label>Domicilio</label>
+    <input class="form-control" name="domicilio" required
+      {if isset($id_cliente)} {*2016-10-06*}
+        value="{$cliente.domicilio}"
+      {/if}>
+  </div>
+  <div class="form-group">
+    <label>E-mail</label>
+    <input class="form-control" type="email" name="email" required
+      {if isset($id_cliente)} {*2016-10-06*}
+        value="{$cliente.email}"
+      {/if}>
+  </div>
+  <div class="form-group">
+    <label>Telefono</label>
+    <input class="form-control" name="telefono" required
+      {if isset($id_cliente)} {*2016-10-06*}
+        value="{$cliente.telefono}"
+      {/if}>
+  </div>
+  <div class="form-group">
+    <label>Persona:</label>
+    {$combo} {*2016-10-04*} {*Esto es hermoso T-T*}
+  </div>
+  <div class="form-group">
+    <label>Estado:</label>
+    {$combo_estados} {*2016-10-04*} {*Esto es hermoso T-T*}
+  </div>
+    {if isset($id_cliente)} <!-- 2016-10-06 -->
+      <input type="hidden" name="id_cliente" value="{$id_cliente}">
+    {/if}
+    <button type="submit" class="btn btn-default">Enviar</button>
+</form>
+{include file="footer.html"} {*2016-10-03*}

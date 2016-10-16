@@ -1,0 +1,19 @@
+{*2016-10-13*}
+<table class="table table-hover">
+  <tr>
+    {section name=columna loop=$campos}
+    <th>
+      {$campos[columna]}
+    </th>
+    {/section}
+  </tr>
+  {section name=renglon loop=$datos}
+    <tr>
+      {foreach from=$datos[renglon] item=dato key=name}
+        <td>
+          {$dato}
+        </td>
+      {/foreach}
+    </tr>
+  {/section}
+</table>

@@ -1,0 +1,22 @@
+{include file="header.html"} {*2016-10-03*}
+<form class="formulario" action="estados.php?accion={if isset($id_estado)}guardar{else}alta{/if}" method="post">{*2016-10-06*}
+  {if isset($id_estado)} {*2016-10-06*}
+    <h1>Edición de Estado</h1>
+  {else}
+    <h1>Nuevo Estado</h1>
+  {/if}
+  <div class="desc">
+      <label>Estado</label>
+      <input class="input" name="estado" required
+        {if isset($id_estado)} {*2016-10-06*}
+          value="{$estado.estado}"
+        {/if}>
+        {if isset($id_estado)} <!-- 2016-10-06 -->
+          <input type="hidden" name="id_estado" value="{$id_estado}">
+        {/if}
+        <br>
+      <input class="button" type="submit" value="Enviar">
+  </div>
+  <br>
+</form>
+{include file="footer.html"} {*2016-10-03*}

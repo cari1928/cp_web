@@ -1,0 +1,33 @@
+{* 2016-09-27_SMARTY_INICIOS *}
+{include file="header.html"} {*2016-09-29*}
+<h1>{$titulo}</h1>
+<a class="input" href="clientes.php?accion=nuevo&id_cliente=null">Nuevo cliente</a>
+<table class="table table-hover">
+  <tr>
+    <th>ID Cliente</th>
+    <th>Razón Social</th>
+    <th>RFC</th>
+    <th>Domicilio</th>
+    <th>Correo</th>
+    <th>Teléfono</th>
+    <th>Tipo</th>
+    <th>Ver</th>      {* 2016-09-29 *}
+    <th>Editar</th>   {* 2016-09-29 *}
+    <th>Eliminar</th> {* 2016-09-29 *}
+  </tr>
+  {foreach $clientes as $cliente}
+    <tr>
+      <td>{$cliente.id_cliente}</td>
+      <td>{$cliente.razon_social}</td>
+      <td>{$cliente.rfc}</td>
+      <td>{$cliente.domicilio}</td>
+      <td>{$cliente.email}</td>
+      <td>{$cliente.telefono}</td>
+      <td>{$cliente.tipo}</td>
+      <td><img src="../images/search.png" alt=""></td> {* 2016-09-29 *}
+      <td><a href="clientes.php?accion=editar&id_cliente={$cliente.id_cliente}"><img src="../images/update.png" alt=""></a></td> {* 2016-10-04 *}
+      <td><a href="clientes.php?accion=eliminar&id_cliente={$cliente.id_cliente}"><img src="../images/delete.png" alt=""></a></td> {* 2016-09-29 *}
+    </tr>
+  {/foreach}
+</table>
+{include file="footer.html"} {*2016-09-29*}
