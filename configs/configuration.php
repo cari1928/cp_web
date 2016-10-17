@@ -7,7 +7,8 @@
   define('DB_NAME', 'cp_web');
   define('DB_USER', 'conta');
   define('DB_PASS', '1234');
-  define('DB_ENGINE', 'mysql');
+  define('DB_ENGINE', 'pgsql'); //2016-10-17 cambiado a postgres
+  // define('DB_ENGINE', 'mysql');
 
   /*
     2016-09-27_SMARTY_INICIOS
