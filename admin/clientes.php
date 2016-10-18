@@ -37,6 +37,7 @@
         $templates->assign('combo', $combo); //2016-10-04 esto es hermoso T-T
         $templates->assign('combo_estados', $combo_estados); //2016-10-11
         $templates->display('clientes_form.html');
+        die();
         break;
 
       case 'ver':
@@ -51,6 +52,7 @@
         $templates->assign('combo', $combo); //2016-10-04 esto es hermoso T-T
         $templates->assign('combo_estados', $combo_estados); //2016-10-11
         $templates->display('clientes_form.html'); //2016-10-04
+        die();
         break;
 
       case 'guardar': //2016-10-06
