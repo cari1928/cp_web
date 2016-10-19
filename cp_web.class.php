@@ -184,7 +184,7 @@ class CPweb {
       $template->assign('campos', $campos);
       return $template->fetch('query2html2.component.html'); //Esto es hermoso T-T
     }
-
+    
 } //END OF THE CLASS
 //-----------------------------------------------------------------------------------------------
 
@@ -195,6 +195,10 @@ class CPweb {
  include('controllers/clientes.php'); ////2016-09-29 En lo que se arregla el foreach de arriba
  include('controllers/estados.php');
  include('controllers/tipos.php');
+ include('controllers/roles.php');
+ include('controllers/privilegios.php');
+ include('controllers/usuarios.php');
+ include('controllers/usuario_rol.php');
 
 $web = new CPweb;
 $web->conexion();

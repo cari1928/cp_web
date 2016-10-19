@@ -1,0 +1,25 @@
+{include file="header.html"} {*2016-10-18*}
+<form class="formulario" action="usuarios.php?accion={if isset($id_usuario)}guardar{else}alta{/if}" method="post">
+  {if isset($id_usuario)} {*2016-10-06*}
+    <h1>Edición de Usuario</h1>
+  {else}
+    <h1>Nuevo Usuario</h1>
+  {/if}
+  <div class="desc">
+      <label>Email</label>
+      <input class="form-control" name="email" required
+        {if isset($id_usuario)} {*2016-10-06*}
+          value="{$usuario.email}"
+        {/if}>
+        <br>
+        <label>Password</label>
+        <input class="form-control" type="password" name="contrasena">
+          {if isset($id_usuario)}
+            <input type="hidden" name="id_usuario" value="{$id_usuario}">
+          {/if}
+          <br>
+      <input class="btn btn-primary" type="submit" value="Enviar">
+  </div>
+  <br>
+</form>
+{include file="footer.html"} {*2016-10-03*}

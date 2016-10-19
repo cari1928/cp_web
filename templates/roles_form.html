@@ -1,0 +1,22 @@
+{include file="header.html"} {*2016-10-03*}
+<form class="formulario" action="roles.php?accion={if isset($id_rol)}guardar{else}alta{/if}" method="post">{*2016-10-06*}
+  {if isset($id_rol)} {*2016-10-06*}
+    <h1>Edición de Rol</h1>
+  {else}
+    <h1>Nuevo Rol</h1>
+  {/if}
+  <div class="desc">
+      <label>Rol</label>
+      <input class="form-control" name="rol" required
+        {if isset($id_rol)} {*2016-10-06*}
+          value="{$rol.rol}"
+        {/if}>
+        {if isset($id_rol)} <!-- 2016-10-06 -->
+          <input type="hidden" name="id_rol" value="{$id_rol}">
+        {/if}
+        <br>
+      <input class="btn btn-primary" type="submit" value="Enviar">
+  </div>
+  <br>
+</form>
+{include file="footer.html"} {*2016-10-03*}

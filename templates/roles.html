@@ -1,0 +1,23 @@
+{* 2016-09-27_SMARTY_INICIOS *}
+{include file="header.html"} {*2016-09-29*}
+<h1>{$titulo}</h1>
+<a class="input" href="roles.php?accion=nuevo&id_rol=null">Nuevo rol</a>
+<table class="table table-hover">
+  <tr>
+    <th>ID</th>
+    <th>Rol</th>
+    <th>Ver</th>      {* 2016-09-29 *}
+    <th>Editar</th>   {* 2016-09-29 *}
+    <th>Eliminar</th> {* 2016-09-29 *}
+  </tr>
+  {foreach $roles as $rol}
+    <tr>
+      <td>{$rol.id_rol}</td>
+      <td>{$rol.rol}</td>
+      <td><img src="../images/search.png" alt=""></td> {* 2016-09-29 *}
+      <td><a href="roles.php?accion=editar&id_rol={$rol.id_rol}"><img src="../images/update.png" alt=""></a></td> {* 2016-10-04 *}
+      <td><a href="roles.php?accion=eliminar&id_rol={$rol.id_rol}"><img src="../images/delete.png" alt=""></a></td> {* 2016-09-29 *}
+    </tr>
+  {/foreach}
+</table>
+{include file="footer.html"} {*2016-09-29*}
