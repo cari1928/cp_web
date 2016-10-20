@@ -5,6 +5,8 @@
   $web = new UsuarioRol;
   $web->conexion();
 
+  $web->checarAcceso();
+
   //Operaciones SQL
   $accion = null; //2016-09-29
   $id_usuario = null; //2016-09-29

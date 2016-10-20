@@ -6,6 +6,8 @@
   $web = new Usuarios;
   $web->conexion();
 
+  $web->checarAcceso();
+
   //Operaciones SQL
   $accion = null;
   $id_usuario = null;
@@ -65,5 +67,5 @@
     $templates->assign('usuarios', $usuarios);
     $templates->display('usuarios.html');
   }
-  
+
 ?>

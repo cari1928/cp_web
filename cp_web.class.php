@@ -5,6 +5,9 @@
   Version:  0.1
   Fecha:    2016-09-22
 */
+
+session_start(); //iniciamos la sesion 2016-10-20
+
 include('configs/configuration.php');
 require_once('lib/smarty/Smarty.class.php'); // 2016-09-27_SMARTY_INICIOS
 
@@ -184,7 +187,21 @@ class CPweb {
       $template->assign('campos', $campos);
       return $template->fetch('query2html2.component.html'); //Esto es hermoso T-T
     }
-    
+
+//------------------------------------------------------------------------------
+    function checarAcceso($rol=null){
+      $data = $_SESSION;
+      if(isset($data['validado'])){
+        if($data['validado']){
+
+        }else{
+          header('Location: login.php');
+        }
+      }else{
+        header('Location: login.php');
+      }
+    }
+
 } //END OF THE CLASS
 //-----------------------------------------------------------------------------------------------
 
@@ -199,6 +216,7 @@ class CPweb {
  include('controllers/privilegios.php');
  include('controllers/usuarios.php');
  include('controllers/usuario_rol.php');
+ include('controllers/login.php');
 
 $web = new CPweb;
 $web->conexion();

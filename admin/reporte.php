@@ -4,6 +4,8 @@
   $web->conexion();
   $templates = $web->templateEngine(); // 2016-09-27_SMARTY_INICIOS
 
+  $web->checarAcceso();
+
   $reporte1 = $web->getQuery2HTML("
     select razon_social as Razón Social, estado as Estado, tipo as Tipo
       from cliente join estado on cliente.id_estado = estado.id_estado

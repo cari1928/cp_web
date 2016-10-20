@@ -5,6 +5,8 @@
   $web = new Privilegios;
   $web->conexion();
 
+  $web->checarAcceso();
+
   //Operaciones SQL
   $accion = null; //2016-09-29
   $id_privilegio = null; //2016-09-29

@@ -5,6 +5,8 @@
   $web = new Tipos;
   $web->conexion();
 
+  $web->checarAcceso();
+
   //Operaciones SQL
   $accion = null; //2016-09-29
   $id_tipo = null; //2016-09-29
