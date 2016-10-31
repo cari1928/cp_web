@@ -1,10 +1,10 @@
 <?php
   include('../cp_web.class.php');
-  $smarty = new Smarty(); // 2016-09-27_SMARTY_INICIOS
+
   $templates = $web->templateEngine(); // 2016-09-27_SMARTY_INICIOS
+  $templates->setTemplateDir("../templates/admin");
   $web = new Estados;
   $web->conexion();
-
   $web->checarAcceso();
 
   //Operaciones SQL

@@ -1,11 +1,11 @@
 <?php
   //Creado 2016-10-18
   include('../cp_web.class.php');
-  $smarty = new Smarty();
+  
   $templates = $web->templateEngine();
+  $templates->setTemplateDir("../templates/admin");
   $web = new Usuarios;
   $web->conexion();
-
   $web->checarAcceso();
 
   //Operaciones SQL

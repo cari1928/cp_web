@@ -1,10 +1,10 @@
 <?php
   include('../cp_web.class.php');
-  $smarty = new Smarty(); // 2016-09-27_SMARTY_INICIOS
+
   $templates = $web->templateEngine(); // 2016-09-27_SMARTY_INICIOS
+  $templates->setTemplateDir("../templates/admin");
   $web = new Roles;
   $web->conexion();
-
   $web->checarAcceso();
 
   //Operaciones SQL
@@ -47,13 +47,8 @@
           $web->deleteRol($id_rol);
         break;
     }
-  } else{
-    //Muestra de contenido
-    $roles = $web->getAll("select * from rol order by rol"); //Modificado el 2016-09-29, getAllEstados -> getAll
-    $templates->assign('titulo', 'Rol'); // 2016-09-27_SMARTY_INICIOS
-    $templates->assign('roles', $roles); // 2016-09-27_SMARTY_INICIOS
-    $templates->display('roles.html'); // 2016-09-27_SMARTY_INICIOS
   }
+  
   $roles = $web->getAll("select * from rol order by rol"); //Modificado el 2016-09-29, getAllEstados -> getAll
   $templates->assign('titulo', 'Rol'); // 2016-09-27_SMARTY_INICIOS
   $templates->assign('roles', $roles); // 2016-09-27_SMARTY_INICIOS

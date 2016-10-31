@@ -1,10 +1,10 @@
 <?php
   include('../cp_web.class.php');
-  $smarty = new Smarty(); // 2016-09-27_SMARTY_INICIOS
+
   $templates = $web->templateEngine(); // 2016-09-27_SMARTY_INICIOS
+  $templates->setTemplateDir("../templates/admin");
   $web = new Clientes;
   $web->conexion();
-
   $web->checarAcceso();
 
   //Operaciones SQL
@@ -67,13 +67,8 @@
           $web->deleteCliente($id_cliente);
         break;
     }
-  } else{
-    //Muestra de contenido
-    $clientes = $web->getAll("select id_cliente, razon_social, rfc, domicilio, email, telefono, tipo from cliente inner join tipo on cliente.id_tipo = tipo.id_tipo"); //Modificado el 2016-09-29, getAllClientes -> getAll
-    $templates->assign('titulo', 'Clientes'); // 2016-09-27_SMARTY_INICIOS
-    $templates->assign('clientes', $clientes); // 2016-09-27_SMARTY_INICIOS
-    $templates->display('clientes.html'); // 2016-09-27_SMARTY_INICIOS
   }
+  
   //Muestra de contenido
   $clientes = $web->getAll("select id_cliente, razon_social, rfc, domicilio, email, telefono, tipo from cliente inner join tipo on cliente.id_tipo = tipo.id_tipo"); //Modificado el 2016-09-29, getAllClientes -> getAll
   $templates->assign('titulo', 'Clientes'); // 2016-09-27_SMARTY_INICIOS

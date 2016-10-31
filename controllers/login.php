@@ -12,7 +12,7 @@
         $_SESSION['email'] = $data[0]['email'];
         $_SESSION['id_usuario'] = $data[0]['id_usuario'];
         $_SESSION['validado'] = true;
-        header("Location: ../admin/index.php");
+        header("Location: admin/index.php");
       }
       else{
         $this->logout();

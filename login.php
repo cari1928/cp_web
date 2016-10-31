@@ -1,6 +1,5 @@
 <?php
-  include('../cp_web.class.php');
-  $smarty = new Smarty();
+  include('cp_web.class.php');
   $templates = $web->templateEngine();
   $web = new Login;
   $web->conexion();
@@ -18,6 +17,8 @@
 
       case 'logout':
         $web->logout();
+        header('Location: ../index.php');
+        die();
         break;
       default:
     }

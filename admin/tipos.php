@@ -1,10 +1,10 @@
 <?php
   include('../cp_web.class.php');
-  $smarty = new Smarty(); // 2016-09-27_SMARTY_INICIOS
+
   $templates = $web->templateEngine(); // 2016-09-27_SMARTY_INICIOS
+  $templates->setTemplateDir("../templates/admin");
   $web = new Tipos;
   $web->conexion();
-
   $web->checarAcceso();
 
   //Operaciones SQL
@@ -47,13 +47,8 @@
           $web->deleteTipo($id_tipo);
         break;
     }
-  } else{
-    //Muestra de contenido
-    $tipos = $web->getAll("select * from tipo order by tipo"); //Modificado el 2016-09-29, getAllTipos -> getAll
-    $templates->assign('titulo', 'Tipos'); // 2016-09-27_SMARTY_INICIOS
-    $templates->assign('tipos', $tipos); // 2016-09-27_SMARTY_INICIOS
-    $templates->display('tipos.html'); // 2016-09-27_SMARTY_INICIOS
   }
+  
   //Muestra de contenido
     $tipos = $web->getAll("select * from tipo order by tipo"); //Modificado el 2016-09-29, getAllTipos -> getAll
     $templates->assign('titulo', 'Tipos'); // 2016-09-27_SMARTY_INICIOS

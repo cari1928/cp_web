@@ -1,7 +1,7 @@
 <?php
   include('../cp_web.class.php');
-  $smarty = new Smarty();
   $templates = $web->templateEngine();
+  $templates->setTemplateDir("../templates/admin");
 
   $email = "";
   if(isset($_SESSION['email'])){

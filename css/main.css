@@ -2,53 +2,59 @@
     margin: 0;
     padding: 0;
     -webkit-box-sizing: border-box;
-  	-moz-box-sizing: border-box;
-  	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-body{ background: #FEFEFE; }
-
-.menu_bar{ display: none; }
-
-header{
-  width: 100%;
+body {
+    background: "images/uploaded/fondo.jpg";
 }
 
-header nav{
-  background: #023859;
-  z-index: 1000; /*Menú arriba de los demás elementos*/
-  max-width: 1000px;
-  width: 95%;
-  margin: 20px auto; /*Centrado*/
+.menu_bar {
+    display: none;
 }
 
-header nav ul{
-  list-style: none;
+header {
+    width: 100%;
 }
 
-header nav ul li{
-  display: inline-block;
-  position: relative;
+header nav {
+    background: #023859;
+    z-index: 1000;
+    /*Menú arriba de los demás elementos*/
+    max-width: 1000px;
+    width: 95%;
+    margin: 20px auto;
+    /*Centrado*/
 }
 
-header nav ul li:hover{
-  background: #E6344A;
-  text-decoration: none;
+header nav ul {
+    list-style: none;
 }
 
-header nav ul li a{
-  color: #fff;
-  padding: 20px;
-  display: block;
-  text-decoration: none;
+header nav ul li {
+    display: inline-block;
+    position: relative;
 }
 
-header nav ul li a:hover{
-  text-decoration: none;
+header nav ul li:hover {
+    background: #E6344A;
+    text-decoration: none;
 }
 
-header nav ul li a span{
-  margin-right: 10px;
+header nav ul li a {
+    color: #fff;
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    text-decoration: none;
+}
+
+header nav ul li a span {
+    margin-right: 10px;
 }
 
 #wrapper {
@@ -95,10 +101,10 @@ section {
     color: #4D4647;
 }
 
-section p{
-  font-family: arial;
-  text-align : justify;
-  width: 80%;
+section p {
+    font-family: arial;
+    text-align: justify;
+    width: 80%;
 }
 
 aside {
@@ -112,6 +118,7 @@ aside {
     width: 80%;
     height: 150px;
 }
+
 
 /*body{
   display: flex;
@@ -129,7 +136,8 @@ footer {
 #direccion {
     width: 975px;
     height: 15%;
-    float: left;;
+    float: left;
+    ;
     background-color: black;
     color: white;
     font-size: 15px;
@@ -141,7 +149,6 @@ footer {
     width: 65%;
     float: left;
     height: 60%;
-
     text-align: right;
     color: white;
     font-size: 35px;
@@ -251,7 +258,9 @@ footer {
     width: 80%;
 }
 
+
 /*COMENTARIOS*/
+
 .titular-comentario {
     margin: 0.3em;
     padding-bottom: 4px;
