@@ -5,7 +5,7 @@
   $templates->setTemplateDir("../templates/admin");
   $web = new Estados;
   $web->conexion();
-  $web->checarAcceso();
+  $web->checarAcceso('Contador');
 
   //Operaciones SQL
   $accion = null; //2016-09-29

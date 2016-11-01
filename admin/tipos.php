@@ -5,7 +5,7 @@
   $templates->setTemplateDir("../templates/admin");
   $web = new Tipos;
   $web->conexion();
-  $web->checarAcceso();
+  $web->checarAcceso('Contador');
 
   //Operaciones SQL
   $accion = null; //2016-09-29
@@ -48,7 +48,7 @@
         break;
     }
   }
-  
+
   //Muestra de contenido
     $tipos = $web->getAll("select * from tipo order by tipo"); //Modificado el 2016-09-29, getAllTipos -> getAll
     $templates->assign('titulo', 'Tipos'); // 2016-09-27_SMARTY_INICIOS

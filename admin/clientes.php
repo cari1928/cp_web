@@ -5,7 +5,7 @@
   $templates->setTemplateDir("../templates/admin");
   $web = new Clientes;
   $web->conexion();
-  $web->checarAcceso();
+  $web->checarAcceso('Contador');
 
   //Operaciones SQL
   $accion = null; //2016-09-29
@@ -68,7 +68,7 @@
         break;
     }
   }
-  
+
   //Muestra de contenido
   $clientes = $web->getAll("select id_cliente, razon_social, rfc, domicilio, email, telefono, tipo from cliente inner join tipo on cliente.id_tipo = tipo.id_tipo"); //Modificado el 2016-09-29, getAllClientes -> getAll
   $templates->assign('titulo', 'Clientes'); // 2016-09-27_SMARTY_INICIOS

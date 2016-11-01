@@ -194,6 +194,26 @@ class CPweb {
       if(isset($data['validado'])){
         if($data['validado']){
 
+          //CHECAR ESTO!!!!
+          $roles = $_SESSION['roles'];
+          echo "<pre>";
+          var_dump($roles);
+          echo $rol;
+          for ($i=0; $i < count($roles); $i++) {
+            if(in_array($rol, $roles )) {
+              die('Existe');
+            } else {
+              die('No existe');
+              header('Location: ../login.php');
+            }
+          }
+
+          // for ($i=0; $i < count($roles); $i++) {
+          //   if($roles[0]['rol'] != $rol) {
+          //     header('Location: ../login.php');
+          //   }
+          // }
+
         }else{
           header('Location: login.php');
         }

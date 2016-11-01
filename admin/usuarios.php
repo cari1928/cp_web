@@ -1,12 +1,12 @@
 <?php
   //Creado 2016-10-18
   include('../cp_web.class.php');
-  
+
   $templates = $web->templateEngine();
   $templates->setTemplateDir("../templates/admin");
   $web = new Usuarios;
   $web->conexion();
-  $web->checarAcceso();
+  $web->checarAcceso('Administrador');
 
   //Operaciones SQL
   $accion = null;

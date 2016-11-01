@@ -1,11 +1,11 @@
 <?php
   include('../cp_web.class.php');
-  
+
   $templates = $web->templateEngine(); // 2016-09-27_SMARTY_INICIOS
   $templates->setTemplateDir("../templates/admin");
   $web = new Privilegios;
   $web->conexion();
-  $web->checarAcceso();
+  $web->checarAcceso('Administrador');
 
   //Operaciones SQL
   $accion = null; //2016-09-29

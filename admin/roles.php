@@ -5,7 +5,7 @@
   $templates->setTemplateDir("../templates/admin");
   $web = new Roles;
   $web->conexion();
-  $web->checarAcceso();
+  $web->checarAcceso('Administrador');
 
   //Operaciones SQL
   $accion = null; //2016-09-29
@@ -25,6 +25,7 @@
 
       case 'nuevo': //mostrar
         $templates->display('roles_form.html');
+        die();
         break;
 
       case 'ver':
@@ -35,6 +36,7 @@
         $templates->assign('id_rol', $id_rol); //2016-10-04
         $templates->assign('rol', $rol[0]); //2016-10-06
         $templates->display('roles_form.html'); //2016-10-04
+        die();
         break;
 
       case 'guardar': //2016-10-06
@@ -48,7 +50,7 @@
         break;
     }
   }
-  
+
   $roles = $web->getAll("select * from rol order by rol"); //Modificado el 2016-09-29, getAllEstados -> getAll
   $templates->assign('titulo', 'Rol'); // 2016-09-27_SMARTY_INICIOS
   $templates->assign('roles', $roles); // 2016-09-27_SMARTY_INICIOS

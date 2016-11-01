@@ -1,11 +1,11 @@
 <?php
   include('../cp_web.class.php');
-  
+
   $templates = $web->templateEngine(); // 2016-09-27_SMARTY_INICIOS
   $templates->setTemplateDir("../templates/admin");
   $web = new UsuarioRol;
   $web->conexion();
-  $web->checarAcceso();
+  $web->checarAcceso('Administrador');
 
   //Operaciones SQL
   $accion = null; //2016-09-29
@@ -53,9 +53,14 @@
     }
   } else{
     //Muestra de contenido
-    $usuarios = $web->getAll("select * from usuario_rol order by id_usuario"); //Modificado el 2016-09-29, getAllUsuarioRol -> getAll
+    $usuarios = $web->getAll("
+      select *
+        from usuario_rol inner join rol on usuario_rol.id_rol = rol.id_rol
+                         inner join usuario on usuario.id_usuario = usuario_rol.id_usuario
+       order by id_usuario"); //Modificado el 2016-09-29, getAllUsuarioRol -> getAll
+       var_dump($usuarios);
     $templates->assign('titulo', 'Usuarios y Roles'); // 2016-09-27_SMARTY_INICIOS
     $templates->assign('usuarios', $usuarios); // 2016-09-27_SMARTY_INICIOS
-    $templates->display('usuarios.html'); // 2016-09-27_SMARTY_INICIOS
+    $templates->display('usuarios_roles.html'); // 2016-09-27_SMARTY_INICIOS
   }
 ?>
