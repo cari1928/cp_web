@@ -121,8 +121,9 @@ class CPweb {
 
     $sql = "update ".$this->getTabla()." set ".$columnas.$where;
     $stmt = $this->conn->prepare($sql);
-    for ($i=0; $i < sizeof($nombresColumnas); $i++) //2016-10-11
+    for ($i=0; $i < sizeof($nombresColumnas); $i++) { //2016-10-11
       $stmt->bindParam(':'.$nombresColumnas[$i], $datos[$nombresColumnas[$i]]); //2016-10-11
+    }
     $stmt->execute();
   }
 
@@ -195,24 +196,19 @@ class CPweb {
         if($data['validado']){
 
           //CHECAR ESTO!!!!
+          //Se debe checar que el rol ingresado esté dentro del arreglo de session, si lo está, lo deja pasar sino no
           $roles = $_SESSION['roles'];
+          $flag = true;
           echo "<pre>";
-          var_dump($roles);
-          echo $rol;
           for ($i=0; $i < count($roles); $i++) {
-            if(in_array($rol, $roles )) {
-              die('Existe');
-            } else {
-              die('No existe');
-              header('Location: ../login.php');
+            if($roles[$i]['rol'] != $rol) {
+              $flat = false;
             }
           }
 
-          // for ($i=0; $i < count($roles); $i++) {
-          //   if($roles[0]['rol'] != $rol) {
-          //     header('Location: ../login.php');
-          //   }
-          // }
+          if(!$flag) {
+            header('Location: login.php');
+          }
 
         }else{
           header('Location: login.php');

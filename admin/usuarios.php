@@ -53,6 +53,8 @@
 
           $web->setTabla("usuario");
           $web->update($_POST, $_POST['id_usuario'],array('id_usuario'=>$_POST['id_usuario']));
+
+          $templates->assign('confirmacion', 'Se ha enviado un correo electrónico con un vínculo para que recupere su contraseña, tiene 2 días para realizar el cambio');
         break;
 
       case 'eliminar':

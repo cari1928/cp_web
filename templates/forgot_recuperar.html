@@ -1,0 +1,17 @@
+{include file="header.html"}
+  <form action="forgot.php?action=restablecer" method="post">
+    <div class="form-group">
+      <label> Escriba una nueva contraseña </label>
+      <input class="form-control" type="password" name="contrasena" required placeholder="Nueva contraseña">
+    </div>
+    <div class="form-group">
+      <label> Confirme la contraseña </label>
+      <input class="form-control" type="password" name="contrasena2" required>
+    </div>
+    <!--  2f1ba4ed431b04e1a2a744ed2071cd5274233a727a0cb2d9e47cb972aa426cdc     -->
+    <input type="hidden" value="{$clave}" name="clave">
+    <div class="form-group">
+      <input type="submit" class="btn btn-primary">
+    </div>
+  </form>
+{include file="footer.html"}

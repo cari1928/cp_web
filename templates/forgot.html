@@ -1,0 +1,18 @@
+{include file="header.html"}
+
+{if isset($msg)} {$msg} {/if}
+
+{if isset($confirmacion)}
+  {$confirmacion}
+{else}
+  <form action="forgot.php?action=validar" method="post">
+    <div class="form-group">
+      <label> Correo electrónico </label>
+      <input class="form-control" type="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <input class="btn btn-primary" type="submit" value="Recuperar">
+    </div>
+  </form>
+{/if}
+{include file="footer.html"}
