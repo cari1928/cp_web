@@ -10,6 +10,7 @@ session_start(); //iniciamos la sesion 2016-10-20
 
 include('configs/configuration.php');
 require_once('lib/smarty/Smarty.class.php'); // 2016-09-27_SMARTY_INICIOS
+require_once('lib/phpmailer/PHPMailerAutoload.php');
 
 class CPweb {
   /****************************************************************************
@@ -217,6 +218,46 @@ class CPweb {
         header('Location: login.php');
       }
     }
+
+  //------------------------------------------------------------------------------
+function forgotpassword($email, $cadena) {
+    $mail             = new PHPMailer();
+    // $body             = file_get_contents('contents.html');
+    // $body             = eregi_replace("[\]",'',$body);
+    $mail->IsSMTP(); // telling the class to use SMTP
+    // $mail->SMTPDebug  = 2; // enables SMTP debug information (for testing)
+    // 1 = errors and messages
+    // 2 = messages only
+    $mail->SMTPAuth   = true;                  // enable SMTP authentication
+    $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+    $mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
+    $mail->Port       = 587;                   // set the SMTP port for the GMAIL server
+    $mail->Username   = "namikaze1928@gmail.com";  // GMAIL username
+    $mail->Password   = "radogan1995";            // GMAIL password
+
+    $mail->SetFrom('namikaze1928@gmail.com', 'Carolina Santana');
+    $mail->Subject    = "Recuperación de Contraseña CPWEB";
+    $body = "Querido usuario usted ha solicitado reestablecimiento de contraseña, por favor presione el siguiente vínculo:
+    <br> <br>
+    <a href='http://www.cp_web.com/cp_web/forgot.php?action=recuperar&clave=".$cadena."' class='btn btn-primary'> Recuperar Contraseña </a>
+    <br> <br>
+    Este vínculo tendrá vigencia de dos día a partir de la recepción de este email
+    <br>
+    Atentamente: <br>
+    Contadores CPWEB
+    ";
+
+    $mail->MsgHTML($body);
+    $address = $email;
+    $mail->AddAddress($address, "Usuario CPWEB");
+
+    // if(!$mail->Send()) {
+    //   echo "Mailer Error: " . $mail->ErrorInfo;
+    // } else {
+    //   echo "Message sent!";
+    // }
+    // die();
+  }
 
 } //END OF THE CLASS
 //-----------------------------------------------------------------------------------------------

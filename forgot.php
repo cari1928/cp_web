@@ -1,6 +1,7 @@
 <?php
   include('cp_web.class.php');
   $templates = $web->templateEngine();
+  // $web = new Login; //para el mail
   $action = null;
 
   if(isset($_GET['action'])) {
@@ -31,7 +32,7 @@
 
           echo $cadena;
           //Aquí se enviará el email
-          //$web->forgotpassword($cadena);
+          $web->forgotpassword($email, $cadena);
 
         } else {
           //Agregar mensaje bootstrap!!!!
@@ -54,7 +55,7 @@
           $templates->assign('clave', $clave); //para no perder la variable
           $templates->display('forgot_recuperar.html');
           die();
-          
+
         } else {
           $templates->assign('msg', 'Clave no válida o Vínculo expirado');
         }
