@@ -30,7 +30,7 @@
 
           $templates->assign('confirmacion', 'Se ha enviado un correo electrónico con un vínculo para que recupere su contraseña, tiene 2 días para realizar el cambio');
 
-          echo $cadena;
+          // echo $cadena;
           //Aquí se enviará el email
           $web->forgotpassword($email, $cadena);
 
@@ -58,6 +58,36 @@
 
         } else {
           $templates->assign('msg', 'Clave no válida o Vínculo expirado');
+        }
+      break;
+
+      case 'restablecer':
+        $contrasena = $_POST['contrasena'];
+        $contrasena2 = $_POST['contrasena2'];
+        $clave = $_POST['clave'];
+
+        if($contrasena == $contrasena2) {
+          $contrasena = md5($contrasena);
+          $fecha = date('Y-m-j');
+          $despues = date ( 'Y-m-j' , strtotime ( '+2 day' , strtotime ( $fecha ) ) );
+          $sql = "select id_usuario from usuario
+            where clave='".$clave."' and fecha_clave <= '".$despues."'";
+          $resultado = $web->fetchAll($sql);
+
+          if(isset($resultado[0])) {
+            $web->setTabla('usuario');
+
+            $tmp = array();
+            $tmp['contrasena'] = $contrasena;
+            $tmp['clave'] = null;
+            $tmp['fecha_clave'] = null;
+            $tmp['id_usuario'] = $resultado[0]['id_usuario'];
+
+            $web->update($tmp, null, array('id_usuario'=>$resultado[0]['id_usuario']));
+            $templates->assign('msg', 'La contraseña se reestableció');
+            $templates->display('login_form.html');
+            die();
+          }
         }
       break;
   }

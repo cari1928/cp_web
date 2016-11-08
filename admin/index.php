@@ -8,7 +8,7 @@
     $email = $_SESSION['email'];
   }
 
-  print_r($_SESSION);
+  // print_r($_SESSION);
 
   $templates->assign('titulo', 'Login');
   $templates->assign('email', $email);

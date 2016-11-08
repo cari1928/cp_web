@@ -200,7 +200,7 @@ class CPweb {
           //Se debe checar que el rol ingresado esté dentro del arreglo de session, si lo está, lo deja pasar sino no
           $roles = $_SESSION['roles'];
           $flag = true;
-          echo "<pre>";
+          // echo "<pre>";
           for ($i=0; $i < count($roles); $i++) {
             if($roles[$i]['rol'] != $rol) {
               $flat = false;
@@ -251,12 +251,11 @@ function forgotpassword($email, $cadena) {
     $address = $email;
     $mail->AddAddress($address, "Usuario CPWEB");
 
-    // if(!$mail->Send()) {
-    //   echo "Mailer Error: " . $mail->ErrorInfo;
-    // } else {
-    //   echo "Message sent!";
-    // }
-    // die();
+    if(!$mail->Send()) {
+      // echo "Mailer Error: " . $mail->ErrorInfo;
+    } else {
+      // echo "Message sent!";
+    }
   }
 
 } //END OF THE CLASS
