@@ -1,0 +1,37 @@
+{include file="header.html"}
+<form action="perfil.php?action=guardar" method="post" enctype="multipart/form-data">
+  <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"> Perfil de Usuario </h3>
+  </div>
+  <div class="form-group">
+    <label> Nombres </label>
+    <input class="form-control" name="nombres"
+    {if isset($usuario)}
+      value="{$usuario.nombres}"
+    {/if}>
+  </div>
+  <div class="form-group">
+    <label> Apellidos </label>
+    <input class="form-control" name="apellidos"
+    {if isset($usuario)} 
+      value="{$usuario.apellidos}"
+    {/if}>
+  </div>
+  <div class="form-group">
+    <label> Fecha de Nacimiento </label>
+    <input type="date" class="form-control" name="nacimiento"
+    {if isset($usuario)} 
+      value="{$usuario.nacimiento}"
+    {/if}>
+  </div>
+  <div class="form-group">
+    <label> Foto </label>
+    <input type="file" name="foto">
+  </div>
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" value="Guardar">
+  </div>
+</div>
+</form>
+{include file="footer.html"}
