@@ -1,0 +1,22 @@
+{include file="header.html"}
+<h1>{$titulo}</h1>
+<a class="input" href="servicio.php?accion=nuevo&id_servicio=null">Nuevo Serviciio</a>
+<table class="table table-hover">
+  <tr>
+    <th>ID</th>
+    <th>Servicio</th>
+    <th>Ver</th>
+    <th>Editar</th>
+    <th>Eliminar</th>
+  </tr>
+  {foreach $servicios as $servicio}
+    <tr>
+      <td>{$servicio.id_servicio}</td>
+      <td>{$servicio.servicio}</td>
+      <td><img src="../images/search.png" alt=""></td>
+      <td><a href="servicio.php?accion=editar&id_servicio={$servicio.id_servicio}"><img src="../images/update.png" alt=""></a></td>
+      <td><a href="servicio.php?accion=eliminar&id_servicio={$servicio.id_servicio}"><img src="../images/delete.png" alt=""></a></td>
+    </tr>
+  {/foreach}
+</table>
+{include file="footer.html"}

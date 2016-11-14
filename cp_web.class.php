@@ -273,6 +273,7 @@ function forgotpassword($email, $cadena) {
  include('controllers/usuarios.php');
  include('controllers/usuario_rol.php');
  include('controllers/login.php');
+include('controllers/servicios.php');
 
 $web = new CPweb;
 $web->conexion();

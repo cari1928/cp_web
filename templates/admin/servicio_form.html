@@ -1,0 +1,22 @@
+{include file="header.html"}
+<form class="formulario" action="servicio.php?accion={if isset($id_servicio)}guardar{else}alta{/if}" method="post">
+  {if isset($id_servicio)}
+    <h1>Edición de Servicio</h1>
+  {else}
+    <h1>Nuevo Servicio</h1>
+  {/if}
+  <div class="desc">
+      <label>Servicio</label>
+      <input class="form-control" name="servicio" required
+        {if isset($id_servicio)}
+          value="{$servicio.servicio}"
+        {/if}>
+        {if isset($id_servicio)} <!-- 2016-10-06 -->
+          <input type="hidden" name="id_servicio" value="{$id_servicio}">
+        {/if}
+        <br>
+      <input class="btn btn-primary" type="submit" value="Enviar">
+  </div>
+  <br>
+</form>
+{include file="footer.html"}
