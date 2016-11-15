@@ -19,8 +19,16 @@
                             where id_usuario in (select id_usuario from usuario
                                                   where email='".$data[0]['email']."'))");
         $_SESSION['roles'] = $roles;
+        
+        //print_r($roles);
+        //die();
+        
+        if($roles[0]['rol'] == 'Cliente') {
+          header("Location: cliente/index.php");  
+        } else {
+          header("Location: admin/index.php");  
+        }
 
-        header("Location: admin/index.php");
       }
       else{
         $this->logout();
