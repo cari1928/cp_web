@@ -1,0 +1,19 @@
+{include file="header.html"}
+<form action="cotizacion.php?accion=nuevo" method="post">
+ <div class="form-group">
+  <label>Servicios</label>
+  {$cmb_servicios} 
+ </div>
+  <div class="form-group">
+    <label>Cantidad</label>  
+    <input class="form-control" name="cantidad">
+  </div>
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" value="Agregar">  
+  </div>
+</form>
+ {foreach $cotizacion as $c}
+ {$c.id_servicio} <br>
+ {$c.cantidad} <br>
+ {/foreach}
+{include file="footer.html"}
