@@ -3,7 +3,7 @@
   define('PATH', '/var/www/html/cp_web/');
 
   // Archivo de configuración de CPweb
-  define('DB_IP', '172.20.108.6'); //se debe modificar cada que se acceda a internet
+  define('DB_IP', '192.168.1.65'); //se debe modificar cada que se acceda a internet
   define('DB_NAME', 'cp_web');
   define('DB_USER', 'conta');
   define('DB_PASS', '1234');
