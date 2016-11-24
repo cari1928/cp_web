@@ -1,0 +1,63 @@
+{include file="header.html"}
+<h1>
+    {$titulo}
+</h1>
+<table class="table table-hover">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Razón Social
+        </th>
+        <th>
+            Fecha
+        </th>
+        <th>
+            Total Servicio
+        </th>
+        <th>
+            Total
+        </th>
+        <th>
+            PDF
+        </th>
+    </tr>
+    {foreach $v_cotizacion as $cotizacion}
+    <tr>
+        <td>
+            {$cotizacion.id_cotizacion}
+        </td>
+        <td>
+            {$cotizacion.razon_social}
+        </td>
+        <td>
+            {$cotizacion.fecha}
+        </td>
+        <td>
+            {$cotizacion.id_servicio}
+        </td>
+        <td>
+            {$cotizacion.precio}
+        </td>
+        <td>
+            {$cotizacion.cantidad}
+        </td>
+        <td>
+            {$cotizacion.servicio}
+        </td>
+        <td>
+            {$cotizacion.total_servicio}
+        </td>
+        <td>
+            {$cotizacion.total}
+        </td>
+        <td>
+            <a href="cotizacion.php?accion=imprimir&id_cotizacion ={$cotizacion.id_cotizacion}">
+                <img alt="" src="../images/search.png"/>
+            </a>
+        </td>
+    </tr>
+    {/foreach}
+</table>
+{include file="footer.html"}

@@ -1,19 +1,46 @@
 {include file="header.html"}
-<form action="cotizacion.php?accion=nuevo" method="post">
- <div class="form-group">
-  <label>Servicios</label>
-  {$cmb_servicios} 
- </div>
-  <div class="form-group">
-    <label>Cantidad</label>  
-    <input class="form-control" name="cantidad">
-  </div>
-  <div class="form-group">
-    <input class="btn btn-primary" type="submit" value="Agregar">  
-  </div>
-</form>
- {foreach $cotizacion as $c}
- {$c.id_servicio} <br>
- {$c.cantidad} <br>
- {/foreach}
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Cotización</h3>
+	</div>
+	<div class="panel-body">
+		<form action="cotizacion.php?accion=nuevo" method="post">
+		 <div class="form-group">
+			<label>Servicios</label>
+			{$cmb_servicios} 
+		 </div>
+			<div class="form-group">
+				<label>Cantidad</label>  
+				<input class="form-control" name="cantidad">
+			</div>
+			<div class="form-group">
+				<input class="btn btn-primary" type="submit" value="Finalizar Cotización">  
+			</div>
+		</form>
+			
+			{if isset($cotizacion)}
+				<table class="table">
+				 {foreach $cotizacion as $c}
+				 <tr>
+				 <td>{$c.id_servicio}</td>
+				 <td>{$c.cantidad}</td>
+				 </tr>
+				 {/foreach}
+				</table>
+				
+				<form action="cotizacion.php?accion=terminar" method="post">
+					<div class="form-group">
+						<label>Clientes</label>
+						{$cmb_clientes} 
+					 </div>
+					 <div class="form-group">
+					 	<input class="btn btn-success" type="submit" value="Terminar Cotizacion">
+					</div>
+				</form>	
+			 {else}
+					<h3>Añada servicios a cotizar</h3>
+			 {/if}
+		
+	</div>
+</div>
 {include file="footer.html"}

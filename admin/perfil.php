@@ -19,8 +19,5 @@
   "select * from usuario where id_usuario='".$_SESSION['id_usuario']."'");
   $templates->assign('usuario', $usuario[0]);
   $templates->display('perfil.html');
-
-
-
   
 ?>

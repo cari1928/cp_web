@@ -38,19 +38,79 @@
       $_SESSION['cotizacion'] = $detalle_cotizacion;      
 			echo "Agregado con éxito";
       break;
+			
+		case 'terminar':
+			if(isset($_SESSION['cotizacion'])) {
+				$cotizaciones = $_SESSION['cotizacion'];					
+				//$id_cliente = $_POST['id_cliente']; //se debe validar el valor seleccionado del combo, futuro
+				$id_cliente = 1;
+				
+				/*
+				$sql = "insert into cotizacion(id_cliente, fecha) 
+				values(".$id_cliente.", now())";
+				$web->conn->Exec($sql);
+				*/
+				
+				/*
+				$sql = "insert into cotizacion(id_cliente, fecha) values(:id_cliente, :fecha)";
+				$fecha = date('Y-m-j');
+				$stmt = $web->conn->prepare($sql);
+				$stmt->bindParam(':id_cliente', $id_cliente);
+				$stmt->bindParam(':fecha', $fecha);
+				*/
+				
+				$fecha = date('Y-m-j');
+				$stmt = $web->conn->prepare("INSERT INTO cotizacion (id_cliente, fecha) VALUES(?,?)"); 
+ 
+				$web->conn->beginTransaction(); 
+				$stmt->execute(array($id_cliente, $fecha)); 
+				$web->conn->commit(); 
+				//var_dump($web->conn->lastInsertId());
+				
+				$sql = "select * from cotizacion where id_cliente=".$id_cliente." 
+					order by id_cotizacion DESC";
+				$datos = $web->fetchAll($sql);
+				//var_dump($datos);
+				
+				$id_cotizacion = $datos[0]['id_cotizacion'];
+				$web->conn->beginTransaction(); 
+				for($i=0; $i < count($cotizaciones); $i++) {
+					$id_servicio = $cotizaciones[$i]['id_servicio'];
+					$cantidad = $cotizaciones[$i]['cantidad'];
+					
+					$sql = "insert into cotizacion_detalle
+						values(".$id_cotizacion.", ".$id_servicio.",".$cantidad.")";
+					$web->conn->Exec($sql);	
+				
+				}
+				$web->conn->commit(); 
+				unset($_SESSION['cotizacion']);
+				header("Location: index.php");
+      }
+			
+			//insertar en cotizacion
+			//obtener id_cliente
+			//obtener id_cotizacion
+			//insertar en cotizacion_detalle, son varios		
+			
+			break;
       
     default: //imprime cotización
       $cmb_servicios = $web->showList('select id_servicio, servicio from servicio');
 			$cotizacion = "";
 			
+			$sql = "select id_cliente, razon_social from cliente where id_usuario='".$_SESSION['id_usuario']."'";
+			$cmb_clientes=$web->showList($sql);
+			
       if(isset($_SESSION['cotizacion'])) {
 				$cotizaciones = $_SESSION['cotizacion'];
         $cotizacion = array();
-				$cotizacion = acomodaArray($cotizaciones, $web);
+				$cotizacion = acomodaArray($cotizaciones, $web);	
+				$templates->assign('cotizacion', $cotizacion);
       }
 			
 			$templates->assign('cmb_servicios', $cmb_servicios);
-			$templates->assign('cotizacion', $cotizacion);
+			$templates->assign('cmb_clientes', $cmb_clientes);
 			$templates->display('cotizacion.html');  
       break;
   }
